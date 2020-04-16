@@ -14,18 +14,9 @@
 		<version>2.2.6.RELEASE</version>
 	</parent>
 
-	<!-- Override inherited settings -->
-	<description/>
-	<developers>
-		<developer/>
-	</developers>
-	<licenses>
-		<license/>
-	</licenses>
-	<scm>
-		<url/>
-	</scm>
-	<url/>
+	<properties>
+		<code.coverage.exclusions>**/com/gaidano/pojo/**, **/com/gaidano/Application.java</code.coverage.exclusions>
+	</properties>
 
 	<!-- Add typical dependencies for a web application -->
 	<dependencies>
@@ -51,5 +42,39 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<properties>
+				<sonar.sources>.</sonar.sources>
+				<sonar.inclusions>src/main/java/**,src/main/resources/**</sonar.inclusions>
+				<sonar.exclusions>${code.coverage.exclusions}</sonar.exclusions>
+				<sonar.projectKey>pipe-pullRequest-coverage</sonar.projectKey>
+				<sonar.organization>giorgiogaidano</sonar.organization>
+				<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+			</properties>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonarsource.scanner.maven</groupId>
+						<artifactId>sonar-maven-plugin</artifactId>
+						<version>3.3.0.603</version>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>sonar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
