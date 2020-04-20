@@ -15,7 +15,7 @@
 	</parent>
 
 	<properties>
-		<code.coverage.exclusions>**/com/gaidano/pojo/**, **/com/gaidano/Application.java</code.coverage.exclusions>
+		<code.coverage.exclusions>**/com/ggaidano/pojo/**, **/com/ggaidano/Application.java</code.coverage.exclusions>
 	</properties>
 
 	<!-- Add typical dependencies for a web application -->
@@ -113,10 +113,6 @@
 								</goals>
 							</execution>
 						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.jacoco</groupId>
-						<artifactId>jacoco-maven-plugin</artifactId>
 					</plugin>
 				</plugins>
 			</build>
