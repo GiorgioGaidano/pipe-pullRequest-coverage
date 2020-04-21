@@ -14,6 +14,14 @@
 		<version>2.2.6.RELEASE</version>
 	</parent>
 
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>Progetto Demo di pipeline</name>
+			<url>https://maven.pkg.github.com/GiorgioGaidano/pipe-pullRequest-coverage</url>
+		</repository>
+	</distributionManagement>
+
 	<properties>
 		<code.coverage.exclusions>**/com/ggaidano/pojo/**, **/com/ggaidano/Application.java</code.coverage.exclusions>
 	</properties>
