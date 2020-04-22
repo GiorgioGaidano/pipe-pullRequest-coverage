@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [verify, sonar]
     env:
-      repo: ${{ secrets.DOCKER_REPO }}
+      REPO: ${{ secrets.DOCKER_REPO }}
     steps:
       - uses: actions/checkout@v1
       - name: Set up JDK 8
